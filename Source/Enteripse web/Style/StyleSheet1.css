@@ -1,0 +1,14 @@
+﻿@import url('StyleSheet1.css');
+navbar-header {
+    color: beige;
+    background-color: royalblue;
+}
+body {
+    background-color: powderblue;
+    color: black;
+}
+footer {
+    background-color: powderblue;
+    color: black;
+    position:fixed;
+}

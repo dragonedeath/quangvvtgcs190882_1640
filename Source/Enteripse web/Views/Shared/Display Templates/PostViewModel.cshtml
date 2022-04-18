@@ -1,0 +1,11 @@
+﻿@model Enteripse_web.Models.PostViewModel
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="post-box"
+         <h2>@Model.Title</h2>
+    <span class="date">@Model.Time</span>
+    @if (Model.Author != null)
+            {
+                <div class="author">Author: @Model.Author </div>
+            }
+</div>
+</div>

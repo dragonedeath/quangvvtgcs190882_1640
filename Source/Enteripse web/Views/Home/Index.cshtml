@@ -1,0 +1,49 @@
+﻿@model PagedList.IPagedList<Enteripse_web.Models.Post>
+@using Microsoft.AspNet.Identity
+@using Enteripse_web.Models
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Posts";
+}
+<h1 class="post-group-heading">Post</h1>
+<div class="row">
+
+    @if (User.Identity.IsAuthenticated)
+    {@Html.ActionLink("Submission for post idea", "Index", "Submissions")
+        <br />
+    foreach (var item in Model)
+    {
+        <div>
+            @Html.DisplayFor(x => item.Title)
+        </div>
+        <div>
+            @Html.DisplayFor(x => item.Time)
+        </div>
+
+
+        <div>
+            @Html.ActionLink("Details", "Details", "Posts1", new { id = item.PostId }, null)
+        </div>
+    }
+}
+    <br />
+
+    <br />
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        @section scripts {
+            @Scripts.Render("~/bundles/ajax")
+        }
+    </div>
+    <!-- Kết thúc -->
+
+    <h2>
+        <strong>@ViewBag.Name</strong>
+    </h2>
+
+
+
+
+
+</div>

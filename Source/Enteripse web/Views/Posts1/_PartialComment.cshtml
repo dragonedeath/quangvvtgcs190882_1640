@@ -1,0 +1,22 @@
+﻿@model Enteripse_web.Models.Comment
+@using (Html.BeginForm("Comment", "Posts1", FormMethod.Post))
+{
+<div class="container">
+    <h2>Comments</h2>
+
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(item => item.PostId)
+    @Html.TextAreaFor(item => item.Content)
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsAnonymus, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.IsAnonymus)
+                @Html.ValidationMessageFor(model => model.IsAnonymus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Comment" />
+
+</div>
+}

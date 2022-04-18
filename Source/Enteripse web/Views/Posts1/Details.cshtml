@@ -1,0 +1,83 @@
+﻿@model Enteripse_web.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+<script src="//js.pusher.com/4.0/pusher.min.js"></script>
+
+<style>
+    .user_name {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .comments-list .media {
+        border-bottom: 1px dotted #ccc;
+    }
+    /*[aspnet-Enteripse web-20220224110033]*/
+</style>
+<h2>Details</h2>
+<div id="app">
+    <div>
+        <h4>Posts</h4>
+        <div>
+            @Html.DisplayFor(model => model.Title)
+        </div>
+        <div>
+            @Html.DisplayFor(model => model.Time)
+        </div>
+        <div>
+            @Html.DisplayFor(model => model.Description)
+        </div>
+        <div>
+            @Html.DisplayFor(model => model.AuthorName)
+        </div>
+        <div>
+            @Html.DisplayFor(model => model.Category.Name)
+        </div>
+        <div>
+            @Html.DisplayFor(model => model.Category.Description)
+        </div>
+        @if (Model.Comments.Any())
+        {
+            @:Comments:
+            <ul>
+                @foreach (var comment in Model.Comments)
+                {
+                    <li>
+                        @comment.Content
+                        @if (comment.Author != null && comment.IsAnonymus == false)
+
+                        {
+                            @: (by @comment.Author.FullName)
+                        }
+                        else
+                        {
+                            @: by Anonymus
+                        }
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No comment</p>
+        }
+        @Html.ActionLink("Comment", "Comment", "Posts1", new { id = Model.PostId }, null)
+        @if (User.IsInRole("Administrator"))
+        {
+            @Html.ActionLink("Download", "Index", "Download", new { id = Model.PostId }, null)
+            @Html.ActionLink("DownloadCSV", "DownloadCSV", "CSV", new { id = Model.PostId }, null)
+            @Html.ActionLink("List posts","Index","Posts1")
+        }
+
+    </div>
+    
+</div>
+<p>
+
+    @Html.ActionLink("Home","Index","Home")
+</p>
