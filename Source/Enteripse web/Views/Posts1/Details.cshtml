@@ -20,27 +20,34 @@
     /*[aspnet-Enteripse web-20220224110033]*/
 </style>
 <h2>Details</h2>
+@*@Html.HiddenFor()*@
 <div id="app">
     <div>
         <h4>Posts</h4>
         <div>
-            @Html.DisplayFor(model => model.Title)
+            Title:  @Html.DisplayFor(model => model.Title)
         </div>
         <div>
-            @Html.DisplayFor(model => model.Time)
+            Created Date:  @Html.DisplayFor(model => model.Time)
         </div>
         <div>
-            @Html.DisplayFor(model => model.Description)
+            Post Description: @Html.DisplayFor(model => model.Description)
         </div>
         <div>
-            @Html.DisplayFor(model => model.AuthorName)
+            Author: @Html.DisplayFor(model => model.AuthorName)
         </div>
         <div>
-            @Html.DisplayFor(model => model.Category.Name)
+            Category: @Html.DisplayFor(model => model.Category.Name)
         </div>
         <div>
-            @Html.DisplayFor(model => model.Category.Description)
+            Category Description: @Html.DisplayFor(model => model.Category.Description)
         </div>
+        @*<div>
+            Closure Date: @Html.DisplayFor(model => model.Submission.closureDate)
+        </div>
+        <div>
+            Final Date: @Html.DisplayFor(model => model.Submission.FinalDate)
+        </div>*@
         @if (Model.Comments.Any())
         {
             @:Comments:
@@ -71,7 +78,7 @@
         {
             @Html.ActionLink("Download", "Index", "Download", new { id = Model.PostId }, null)
             @Html.ActionLink("DownloadCSV", "DownloadCSV", "CSV", new { id = Model.PostId }, null)
-            @Html.ActionLink("List posts","Index","Posts1")
+            @Html.ActionLink("List posts", "Index", "Posts1")
         }
 
     </div>

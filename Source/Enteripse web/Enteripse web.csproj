@@ -335,6 +335,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Posts1Controller.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\StaticsController.cs" />
     <Compile Include="Controllers\SubmissionsController.cs" />
     <Compile Include="CustomFilters\AuthLogAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -345,6 +346,7 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\StaticsViewModel.cs" />
     <Compile Include="Models\Submission.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Department.cs" />
@@ -439,6 +441,7 @@
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Home\FailDelete.cshtml" />
+    <Content Include="Views\Statics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

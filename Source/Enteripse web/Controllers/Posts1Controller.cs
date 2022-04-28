@@ -27,36 +27,44 @@ namespace Enteripse_web.Controllers
 
         // GET: Posts1
         public ActionResult Index()
-        {  
+        {
             var posts = db.Posts.Include(p => p.Author);
             return View(posts.ToList());
         }
         [HttpGet]
         public ActionResult Comment(int id)
         {
-   
-            return PartialView("_PartialComment", new Enteripse_web.Models.Comment { PostId = id });
+            var check = db.Posts.Find(id);
+            var check_date = db.Submissions.Find(check.submissionID);
+            if (DateTime.Now > check_date.FinalDate)
+            {
+                return RedirectToAction("Fail", "Home");
+            }
+            else
+            {
+                return PartialView("_PartialComment", new Enteripse_web.Models.Comment { PostId = id, submissionId = check.submissionID });
+            }
         }
+     
+        
 
         [HttpPost]
-        public ActionResult Comment(Comment data, int id)
+        public ActionResult Comment(Comment data)
         {
             try
             {
                 data.AuthorId = User.Identity.GetUserId();
-                data.submissionId = id;
-                var submit = db.Submissions.Find(id);
-                if (DateTime.Now > submit.FinalDate)
-                {
-                    return RedirectToAction("FailComment", "Home");
-                }
-                else
-                {
+                //if (DateTime.Now > submit.FinalDate)
+                //{
+                //    return RedirectToAction("FailComment", "Home");
+                //}
+                //else
+                //{
 
 
-                    db.Comments.Add(data);
-                    db.SaveChanges();
-                }
+                db.Comments.Add(data);
+                db.SaveChanges();
+
                 if (data.IsAnonymus == true)
                 {
                     data.AuthorId = "Anonymous";
@@ -80,22 +88,30 @@ namespace Enteripse_web.Controllers
                 mail.From = new MailAddress("thienlun15082001@gmail.com");
 
                 var userId = User.Identity.GetUserId();
-                var post = db.Posts.Where(x => x.PostId == data.PostId).FirstOrDefault();
-                var author = db.Users.Where(x => x.Id == post.AuthorId).FirstOrDefault();
+                var posts = db.Posts.Where(x => x.PostId == data.PostId).FirstOrDefault();
+                var author = db.Users.Where(x => x.Id == posts.AuthorId).FirstOrDefault();
                 var email = author.Email;
                 mail.To.Add(new MailAddress(email));
                 mail.Subject = "New comment";
                 mail.Body = "Your post has new comment. Please check it!";
 
                 smtpServer.Send(mail);
+                //data.submissionID = id;
+                var submit = db.Submissions.Find(data.submissionId);
+                if (DateTime.Now > submit.FinalDate)
+                {
+                    return RedirectToAction("Fail", "Home");
+                }
+                else
+                {
 
-               
 
-                
                     return RedirectToAction("Index", "Home");
-                
 
+
+                }
             }
+
             catch (DbEntityValidationException e)
             {
                 foreach (var eve in e.EntityValidationErrors)
@@ -140,10 +156,21 @@ namespace Enteripse_web.Controllers
         }
 
         // GET: Posts1/Create
-        public ActionResult Create()
+        public ActionResult Create(Post post,int id)
         {
-            ViewBag.CategoryId = new SelectList(context.Categories.ToList(), "Id", "Name");
-            return View();
+            post.submissionID = id;
+            var submit = db.Submissions.Find(id);
+
+            if (DateTime.Now > submit.closureDate)
+            {
+                return RedirectToAction("Fail", "Home");
+            }
+            else
+            {
+                ViewBag.CategoryId = new SelectList(context.Categories.ToList(), "Id", "Name");
+                Post newidea = new Post() { submissionID = id };
+                return View(newidea);
+            }
         }
         
 
@@ -152,7 +179,7 @@ namespace Enteripse_web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Post post, int id)
+        public ActionResult Create(Post post)
         {
             if (ModelState.IsValid)
             {
@@ -210,20 +237,20 @@ namespace Enteripse_web.Controllers
                 mail.Body = "Your department has a new post. Please check it!";
 
                 smtpServer.Send(mail);
-                post.submissionId = id;
-                var submit = db.Submissions.Find(id);
-                if (DateTime.Now > submit.closureDate)
-                {
-                    return RedirectToAction("Fail", "Home");
-                }
-                else
-                {
+                //post.submissionID = id;
+                //var submit = db.Submissions.Find(id);
+                //if (DateTime.Now > submit.closureDate)
+                //{
+                //    return RedirectToAction("Fail", "Home");
+                //}
+                //else
+                
 
 
                     db.Posts.Add(post);
                     db.SaveChanges();
                     return RedirectToAction("Index","Home");
-                }
+                
             }
              
 

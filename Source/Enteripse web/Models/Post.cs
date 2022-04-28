@@ -29,7 +29,7 @@ namespace Enteripse_web.Models
         public bool IsAnonymus { get; set; }
         
         public string DocumentName { get; set; }
-        public int submissionId { get; set; }
+        public int submissionID { get; set; }
         public int categoryId   { get; set; }
         public virtual Category Category { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

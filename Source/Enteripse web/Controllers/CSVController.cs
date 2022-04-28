@@ -28,8 +28,6 @@ namespace Enteripse_web.Controllers
                                            item.Description,
                                            item.DocumentName);
             }
-            //StringWriter sw = new StringWriter();
-            //sw.WriteLine
             return File(new System.Text.UTF8Encoding().GetBytes(csv), "text/csv", "Report123.csv");
         }
     }

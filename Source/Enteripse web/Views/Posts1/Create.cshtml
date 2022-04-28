@@ -22,11 +22,13 @@
 @using (Html.BeginForm("Create", "Posts1", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+    
 
 <div class="form-horizontal">
     <h4>Post</h4>
     <hr />
     <div class="form-group">
+        @Html.HiddenFor(model => Model.submissionID)
         @Html.Label("Select Your Category", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })

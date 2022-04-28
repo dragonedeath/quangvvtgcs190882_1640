@@ -1,0 +1,33 @@
+﻿@model Enteripse_web.Models.StaticsViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+   <hr />
+   <dl class="dl-horizontal">
+       <dt>
+           @Html.DisplayNameFor(model => model.numberPostofHR)
+       </dt>
+       <dd>
+           @Html.DisplayFor(model => model.numberPostofHR)
+       </dd>
+       <dt>
+           @Html.DisplayNameFor(model => model.numberPostofBusiness)
+       </dt>
+       <dd>
+           @Html.DisplayFor(model => model.numberPostofBusiness)
+       </dd>
+       <dt>
+           @Html.DisplayNameFor(model => model.numberPostofIT)
+       </dt>
+       <dd>
+           @Html.DisplayFor(model => model.numberPostofIT)
+       </dd>
+       <dt>
+           @Html.DisplayNameFor(model => model.numberPostofQA)
+       </dt>
+       <dd>
+           @Html.DisplayFor(model => model.numberPostofQA)
+       </dd>
+   </dl>

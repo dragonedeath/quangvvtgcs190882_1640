@@ -1,0 +1,24 @@
+https://www.productplan.com/glossary/moscow-prioritization/
+https://www.itpro.co.uk/strategy/29856/data-controllers-responsibilities
+https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/controllers-and-processors/what-does-it-mean-if-you-are-a-controller/
+https://www.agilebusiness.org/page/whatisdsdm
+https://www.agilebusiness.org/page/ProjectFramework_02_ChoosingDSDM
+https://www.coursera.org/articles/what-is-agile-a-beginners-guide
+https://www.macs.hw.ac.uk/macshome/MScComputing/RM/Docs/L4PLESI.pdf
+https://www.cs.uct.ac.za/mit_notes/ethics/htmls/ch04s04.html
+https://www.modernanalyst.com/Resources/Articles/tabid/115/ID/5384/Keeping-High-Level-Requirements-High-Level.aspx.
+
+
+
+
+Product plan (2018). What is MoSCoW Prioritization? | Overview of the MoSCoW Method. [online] Productplan.com. Available at: https://www.productplan.com/glossary/moscow-prioritization/.
+IT PRO. (n.d.). Data controllers’ responsibilities. [online] Available at: https://www.itpro.co.uk/strategy/29856/data-controllers-responsibilities.
+‌ico.org.uk. (2021). What does it mean if you are a controller? [online] Available at: https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/controllers-and-processors/what-does-it-mean-if-you-are-a-controller/.
+Agile Business Consortium (2019). What is DSDM? [online] Agilebusiness.org. Available at: https://www.agilebusiness.org/page/whatisdsdm.
+Agile Business Consortium (2019). Chapter 2: Choosing DSDM. [online] Agilebusiness.org. Available at: https://www.agilebusiness.org/page/ProjectFramework_02_ChoosingDSDM.
+Coursera. (n.d.). What Is Agile? And When to Use It. [online] Available at: https://www.coursera.org/articles/what-is-agile-a-beginners-guide.
+Professional, legal, ethical and social issues. (n.d.). [online] Available at: https://www.macs.hw.ac.uk/macshome/MScComputing/RM/Docs/L4PLESI.pdf [Accessed 20 Apr. 2022].
+Uct.ac.za. (2010). BCS Codes of Conduct and Practice. [online] Available at: https://www.cs.uct.ac.za/mit_notes/ethics/htmls/ch04s04.html.
+Modernanalyst.com. (2015). Keeping High-Level Requirements High-Level. [online] Available at: https://www.modernanalyst.com/Resources/Articles/tabid/115/ID/5384/Keeping-High-Level-Requirements-High-Level.aspx.
+
+‌

@@ -22,6 +22,7 @@ namespace Enteripse_web.Models
         public bool IsAnonymus { get; set; }
         public int PostId { get; set; }
         public int submissionId { get; set; }
+
         public virtual Post Post { get; set; }
     }
 }
